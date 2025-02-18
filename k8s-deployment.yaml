@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimalist-app
+  labels:
+    app: minimalist-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minimalist-app
+  template:
+    metadata:
+      labels:
+        app: minimalist-app
+    spec:
+      containers:
+      - name: minimalist-container
+        image: ghcr.io/your-repo/minimalist-container:latest
+        ports:
+        - containerPort: 80
